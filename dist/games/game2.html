@@ -27,12 +27,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">JAM-X Game</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#!">Play</a></li>
+                            <li><a class="dropdown-item" href="../play.html">Play</a></li>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
-                            <li><a class="dropdown-item" href="instructions.html">Instructions</a></li>
-                            <li><a class="dropdown-item" href="modules.html">Modules</a></li>
+                            <li><a class="dropdown-item" href="../instructions.html">Instructions</a></li>
+                            <li><a class="dropdown-item" href="../modules.html">Modules</a></li>
                             <li><a class="dropdown-item" href="#!">References</a></li>
                         </ul>
                     </li>
@@ -56,75 +56,103 @@
         </div>
     </nav>
     <!-- Product section-->
-    <section class="py-5">
-        <div class="container px-4 px-lg-5 my-5">
+    <section class="pt-5">
+        <div class="container px-4 px-lg-5 my-3">
             <div class="row gx-4 gx-lg-5 align-items-center">
                 <div class="col-md-12">
-                    <div class="small mb-1">MODULE 1</div>
-                    <h1 class="display-5 fw-bolder">Chapter 1: Metis Trade Demo</h1>
+                    <div class="small mb-1">MODULE 2</div>
+                    <h1 class="display-5 fw-bolder">Chapter 2: Metis Culture Demo</h1>
                     <p>Click on the sentence to have it read out loud! Try to do your best to follow along. Once you have finished reading, you can play your word matching game!</p>
                 </div>
             </div>
     </section>
     <!-- GAME 2 -->
-   <section class="py-5">
-        <div class="container px-4 px-lg-5 my-5">
+    <section class="pb-5 bg-light">
+        <div class="container px-4 px-lg-5 pt-5 my-3">
             <div class="row gx-4 gx-lg-5 align-items-center">
                 <div class="col-md-12">
-                    <div id="s1">
-                        I'm baby irony enamel pin literally authentic synth vape vaporware organic activated charcoal crucifix bespoke retro YOLO austin.
-                    </div>
-                    <p id="s2">
-                        Shoreditch messenger bag readymade, stumptown yr chia paleo pok pok.
+                    <strong>Select Voice: <select id='voiceList'></select> <br><br></strong>
+                    <p>
+                        <div id="s1">
+                           > I'm baby irony enamel pin literally authentic synth vape vaporware organic activated charcoal crucifix bespoke retro YOLO austin.
+                        </div>
                     </p>
-                    <p id="s3">
-                        Authentic twee raw denim vice schlitz four loko try-hard sriracha jianbing narwhal vape chillwave drinking vinegar skateboard whatever.
+                    <p>
+                        <div id="s2">> Shoreditch messenger bag readymade, stumptown yr chia paleo pok pok.</div>
                     </p>
+                    <p>
+                        <div id="s3">> Authentic twee raw denim vice schlitz four loko try-hard sriracha jianbing narwhal vape chillwave drinking vinegar skateboard whatever.</div>
+                    </p>
+                    <!-- <input id='txtInput' /> <br><br> -->
+                    <!-- <button id='btnSpeak'>Speak!</button> -->
+                    <script>
+                    var txtInput = document.querySelector('#txtInput');
+                    var voiceList = document.querySelector('#voiceList');
+                    var btnSpeak = document.querySelector('#btnSpeak');
+                    var s1 = document.getElementById('s1');
+                    var synth = window.speechSynthesis;
+                    var voices = [];
 
- Select Voice: <select id='voiceList'></select> <br><br>
+                    PopulateVoices();
+                    if (speechSynthesis !== undefined) {
+                        speechSynthesis.onvoiceschanged = PopulateVoices;
+                    }
 
-    <input id='txtInput' /> <br><br>    
-    <button id='btnSpeak'>Speak!</button>
+                    s1.addEventListener('click', () => {
+                        var toSpeak = new SpeechSynthesisUtterance(s1.innerHTML);
+                        var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
+                        voices.forEach((voice) => {
+                            if (voice.name === selectedVoiceName) {
+                                toSpeak.voice = voice;
+                            }
+                        });
+                        synth.speak(toSpeak);
+                    });
+                    s2.addEventListener('click', () => {
+                        var toSpeak = new SpeechSynthesisUtterance(s2.innerHTML);
+                        var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
+                        voices.forEach((voice) => {
+                            if (voice.name === selectedVoiceName) {
+                                toSpeak.voice = voice;
+                            }
+                        });
+                        synth.speak(toSpeak);
+                    });
+                    s3.addEventListener('click', () => {
+                        var toSpeak = new SpeechSynthesisUtterance(s3.innerHTML);
+                        var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
+                        voices.forEach((voice) => {
+                            if (voice.name === selectedVoiceName) {
+                                toSpeak.voice = voice;
+                            }
+                        });
+                        synth.speak(toSpeak);
+                    });
 
-    <script>
-        var txtInput = document.querySelector('#txtInput');
-        var voiceList = document.querySelector('#voiceList');
-        var btnSpeak = document.querySelector('#btnSpeak');
-        var s1 = document.getElementById('s1');
-        var synth = window.speechSynthesis;
-        var voices = [];
+                    function PopulateVoices() {
+                        voices = synth.getVoices();
+                        var selectedIndex = voiceList.selectedIndex < 0 ? 0 : voiceList.selectedIndex;
+                        voiceList.innerHTML = '';
+                        voices.forEach((voice) => {
+                            var listItem = document.createElement('option');
+                            listItem.textContent = voice.name;
+                            listItem.setAttribute('data-lang', voice.lang);
+                            listItem.setAttribute('data-name', voice.name);
+                            voiceList.appendChild(listItem);
+                        });
 
-        PopulateVoices();
-        if(speechSynthesis !== undefined){
-            speechSynthesis.onvoiceschanged = PopulateVoices;
-        }
+                        voiceList.selectedIndex = selectedIndex;
+                    }
 
-        s1.addEventListener('click', ()=> {
-            var toSpeak = new SpeechSynthesisUtterance(s1.value);
-            var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
-            voices.forEach((voice)=>{
-                if(voice.name === selectedVoiceName){
-                    toSpeak.voice = voice;
-                }
-            });
-            synth.speak(toSpeak);
-        });
+                    </script>
+                </div>
+            </div>
+            <div class="row gx-4 gx-lg-5 align-items-center pt-5">
+                <div class="col-md-12">
+                    <h3>Matching Letters Game</h3>
+                    <p>Create the word from the photo. Link beginning letter to ending of the word.</p>
+                    <button id='btnSpeak'>Play! (Not Ready)</button>
 
-        function PopulateVoices(){
-            voices = synth.getVoices();
-            var selectedIndex = voiceList.selectedIndex < 0 ? 0 : voiceList.selectedIndex;
-            voiceList.innerHTML = '';
-            voices.forEach((voice)=>{
-                var listItem = document.createElement('option');
-                listItem.textContent = voice.name;
-                listItem.setAttribute('data-lang', voice.lang);
-                listItem.setAttribute('data-name', voice.name);
-                voiceList.appendChild(listItem);
-            });
-
-            voiceList.selectedIndex = selectedIndex;
-        }
-    </script>
                 </div>
             </div>
     </section>
@@ -141,3 +169,4 @@
 </body>
 
 </html>
+<!-- https://github.com/zolomohan/text-to-speech/blob/master/textToSpeech.js -->
