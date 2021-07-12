@@ -100,7 +100,7 @@
         }
 
         s1.addEventListener('click', ()=> {
-            var toSpeak = new SpeechSynthesisUtterance(s1.innerHTML);
+            var toSpeak = new SpeechSynthesisUtterance(s1.value);
             var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
             voices.forEach((voice)=>{
                 if(voice.name === selectedVoiceName){
