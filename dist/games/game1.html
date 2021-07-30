@@ -67,22 +67,25 @@
             </div>
     </section>
     <!-- GAME 2 -->
-    <section class="pb-5 bg-light">
-        <div class="container px-4 px-lg-5 pt-5 my-3">
-            <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-12">
-                    <strong>Select Voice: <select id='voiceList'></select> <br><br></strong>
-                    <p>
-                        <div id="s1">
-                           > I'm baby irony enamel pin literally authentic synth vape vaporware organic activated charcoal crucifix bespoke retro YOLO austin.
-                        </div>
-                    </p>
-                    <p>
-                        <div id="s2">> Shoreditch messenger bag readymade, stumptown yr chia paleo pok pok.</div>
-                    </p>
-                    <p>
-                        <div id="s3">> Authentic twee raw denim vice schlitz four loko try-hard sriracha jianbing narwhal vape chillwave drinking vinegar skateboard whatever.</div>
-                    </p>
+    <section class="pb-5 bg-light py-5 px-5">
+        <div class="container px-4 px-lg-5 pt-5 my-3 bg-white">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-8">
+                    <h3 class="text-center">Practice Reading</h3>
+                    <div class="box">
+                        <strong>Select Voice: <select id='voiceList'></select> <br><br></strong>
+                        <p>1.
+                            <span id="s1">
+                                I'm baby irony enamel pin literally authentic synth vape vaporware organic activated charcoal crucifix bespoke retro YOLO austin.
+                            </span>
+                        </p>
+                        <p>2.
+                            <span id="s2">Shoreditch messenger bag readymade, stumptown yr chia paleo pok pok.</span>
+                        </p>
+                        <p>3.
+                            <span id="s3"> Authentic twee raw denim vice schlitz four loko try-hard sriracha jianbing narwhal vape chillwave drinking vinegar skateboard whatever.</span>
+                        </p>
+                    </div>
                     <!-- <input id='txtInput' /> <br><br> -->
                     <!-- <button id='btnSpeak'>Speak!</button> -->
                     <script>
@@ -147,14 +150,64 @@
                     </script>
                 </div>
             </div>
-            <div class="row gx-4 gx-lg-5 align-items-center pt-5">
-                <div class="col-md-12">
-                    <h3>Matching Letters Game</h3>
+            <style>
+            .columns-2 {
+                column-count: 2;
+            }
+
+            </style>
+            <div class="row gx-4 gx-lg-5  justify-content-center pt-5">
+                <div class="col-md-8">
+                    <h3 class="text-center">JAM-X!</h3>
                     <p>Create the word from the photo. Link beginning letter to ending of the word.</p>
                     <button id='btnSpeak'>Play! (Not Ready)</button>
-
+                    <p>
+                        <img id="imgWord" name="beaver" src="https://www.clipartmax.com/png/small/152-1527507_beaver-clipart-kawaii-cute-cartoon-beavers.png" alt="Beaver Clipart Kawaii - Cute Cartoon Beavers @clipartmax.com">
+                        <h6>Click the image to hear the word!</h6>
+                    </p>
+                    <ul id="words" class="words columns-2 list-unstyled">
+                    </ul>
                 </div>
             </div>
+            <script>
+            let wordsArray = ['h', 'be', 'ca', 'oot', 'ttern', 'aver'];
+            let word = document.getElementById("imgWord").name;
+            let compareWord = "";
+            let compareArray = [];
+
+            // populate list with words
+            function showWords() {
+                // var wordsFinal = wordsArray.map(function(word, i) {
+                //     return word
+                // })
+
+                document.getElementById('words').innerHTML =
+                    '<li>' + wordsArray.join('</li><li>') + '</li>'
+            }
+
+            showWords();
+
+            //compare letters
+            document.getElementById("words").addEventListener("click", function(e) {
+                if (e.target && e.target.matches("li")) {
+                    compareArray.push(e.target.textContent);
+                    console.log("li", e.target);
+                    if (compareArray.length == 2) {
+                        compareWord = compareArray[0] + compareArray[1];
+                        if (compareWord == word) {
+                            alert("CORRECT YASSS");
+                            compareArray = [];
+                            compareWord = "";
+                        } else {
+                            alert("FAIL");
+                            compareArray = [];
+                            compareWord = "";
+                        }
+                    }
+                }
+            });
+
+            </script>
     </section>
     <!-- Footer-->
     <footer class="py-5 bg-dark">
