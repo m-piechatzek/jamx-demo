@@ -90,27 +90,29 @@
         <div class="container px-4 px-lg-5 pt-5 my-3 bg-white">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-4">
-                    <h3 class="text-center pb-3">Reading Progress</h3>
-                    <div class="text-center"> <strong>Select Voice: <select id='voiceList'></select> <br><br></strong></div>
-                    <div class="text-center">
-                        <p>
-                            <strong>Sentence 1</strong>: <span id="s1Pro">0</span>
-                        </p>
-                        <p>
-                            <strong>Sentence 2</strong>: <span id="s2Pro">0</span>
-                        </p>
-                        <p>
-                            <strong>Sentence 3</strong>: <span id="s3Pro">0</span>
-                        </p>
-                    </div>
-                    <div class="mb-2 text-center">
-                        <!-- <button id="start" class="btn btn-success mt-5 me-3">Start</button> -->
-                        <button id="pause" class="btn btn-warning mt-5 me-3">Pause</button>
-                        <button id="resume" class="btn btn-info mt-5 me-3">Resume</button>
-                        <button id="cancel" class="btn btn-danger mt-5 me-3">Cancel</button>
+                    <div id="readingPoints">
+                        <h3 class="text-center pb-3">Reading Progress</h3>
+                        <div class="text-center"> <strong>Select Voice: <select id='voiceList'></select> <br><br></strong></div>
+                        <div class="text-center">
+                            <p>
+                                <strong>Sentence 1</strong>: <span id="s1Pro">0</span>
+                            </p>
+                            <p>
+                                <strong>Sentence 2</strong>: <span id="s2Pro">0</span>
+                            </p>
+                            <p>
+                                <strong>Sentence 3</strong>: <span id="s3Pro">0</span>
+                            </p>
+                        </div>
+                        <div class="mb-2 text-center">
+                            <!-- <button id="start" class="btn btn-success mt-5 me-3">Start</button> -->
+                            <button id="pause" class="btn btn-warning mt-5 me-3">Pause</button>
+                            <button id="resume" class="btn btn-info mt-5 me-3">Resume</button>
+                            <button id="cancel" class="btn btn-danger mt-5 me-3">Cancel</button>
+                        </div>
                     </div>
                     <div id="points" class="text-center">
-                        <h3 class="text-center pt-5 pb-3">JAM-X Points</h3>
+                        <h3 class="text-center pb-3">JAM-X Points</h3>
                         <p>
                             <strong>Sentence 1 Point</strong>: <span id="s1Game">0</span>
                         </p>
@@ -276,6 +278,7 @@
                 transition: .4s;
             }
 
+
             .words>li:hover {
                 background-color: beige;
                 border-color: gold;
@@ -296,8 +299,14 @@
                 border-style: solid;
             }
 
+            #jamxId img {
+                aspect-ratio: 1/1;
+                width: 100%;
+            }
+
             #jamxId,
-            #points {
+            #points
+            {
                 display: none;
                 /*transition: .4s;*/
                 animation: fadeIn .5s;
@@ -402,11 +411,15 @@
                 var x = document.getElementById("jamxId");
                 var reading = document.getElementById("reading");
                 var points = document.getElementById("points");
+                var readingPoints = document.getElementById("readingPoints");
+
                 if (x.style.display === "none") {
+                    readingPoints.style.display = "none";
                     x.style.display = "block";
                     points.style.display = "block";
                     reading.style.display = "none";
                 } else {
+                    readingPoints.style.display = "block";
                     points.style.display = "none";
                     x.style.display = "none";
                     reading.style.display = "block";
