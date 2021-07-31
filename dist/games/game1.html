@@ -66,25 +66,105 @@
                 </div>
             </div>
     </section>
+    <style>
+        .box>p {
+                background-color: white;
+                border-color: #0f0f0f;
+                border-radius: 10px;
+                border-width: 1px;
+                border-style: solid;
+                padding: 2rem;
+                font-size: 1.5em;
+                transition: .4s;
+        }
+
+        .box>p:hover {
+                background-color: beige;
+                border-color: gold;
+                /*font-weight: 600;*/
+            }
+
+    </style>
     <!-- GAME 2 -->
-    <section class="pb-5 bg-light py-5 px-5">
+    <section class="pb-5 bg-light py-3 px-3">
         <div class="container px-4 px-lg-5 pt-5 my-3 bg-white">
             <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-4">
+                    <h3 class="text-center pb-3">Reading Progress</h3>
+                    <div class="text-center"> <strong>Select Voice: <select id='voiceList'></select> <br><br></strong></div>
+                    <div class="text-center">
+                        <p>
+                            <strong>Sentence 1</strong>: <span id="s1Pro">0</span>
+                        </p>
+                        <p>
+                            <strong>Sentence 2</strong>: <span id="s2Pro">0</span>
+                        </p>
+                        <p>
+                            <strong>Sentence 3</strong>: <span id="s3Pro">0</span>
+                        </p>
+                    </div>
+                    <div class="mb-2 text-center">
+                        <!-- <button id="start" class="btn btn-success mt-5 me-3">Start</button> -->
+                        <button id="pause" class="btn btn-warning mt-5 me-3">Pause</button>
+                        <button id="resume" class="btn btn-info mt-5 me-3">Resume</button>
+                        <button id="cancel" class="btn btn-danger mt-5 me-3">Cancel</button>
+                    </div>
+                    <div id="points" class="text-center">
+                        <h3 class="text-center pt-5 pb-3">JAM-X Points</h3>
+                        <p>
+                            <strong>Sentence 1 Point</strong>: <span id="s1Game">0</span>
+                        </p>
+                        <p>
+                            <strong>Sentence 2 Point</strong>: <span id="s2Game">0</span>
+                        </p>
+                        <p>
+                            <strong>Sentence 3 Point</strong>: <span id="s3Game">0</span>
+                        </p>
+                    </div>
+                    <p class="text-center py-3">
+                        <!-- add disabled -->
+                        <button onclick="hideShow()" id="playBtn" type="button" class="btn btn-warning">Play JAM-X!</button>
+                    </p>
+                </div>
                 <div class="col-md-8">
-                    <h3 class="text-center">Practice Reading</h3>
-                    <div class="box">
-                        <strong>Select Voice: <select id='voiceList'></select> <br><br></strong>
-                        <p>1.
-                            <span id="s1">
-                                I'm baby irony enamel pin literally authentic synth vape vaporware organic activated charcoal crucifix bespoke retro YOLO austin.
-                            </span>
-                        </p>
-                        <p>2.
-                            <span id="s2">Shoreditch messenger bag readymade, stumptown yr chia paleo pok pok.</span>
-                        </p>
-                        <p>3.
-                            <span id="s3"> Authentic twee raw denim vice schlitz four loko try-hard sriracha jianbing narwhal vape chillwave drinking vinegar skateboard whatever.</span>
-                        </p>
+                    <div id="reading">
+                        <h3 class="text-center pb-3">Practice Reading</h3>
+                        <div class="box">
+                            <p>1.
+                                <span id="s1">
+                                    I'm baby irony enamel pin literally authentic synth vape vaporware organic activated charcoal crucifix bespoke retro YOLO austin.
+                                </span>
+                            </p>
+                            <p>2.
+                                <span id="s2">Shoreditch messenger bag readymade, stumptown yr chia paleo pok pok.</span>
+                            </p>
+                            <p>3.
+                                <span id="s3"> Authentic twee raw denim vice schlitz four loko try-hard sriracha jianbing narwhal vape chillwave drinking vinegar skateboard whatever.</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="jamxId" class="container">
+                        <h3 class="text-center pb-3">Sentence 1</h3>
+                        <div class="row gx-4 gx-lg-5  justify-content-center">
+                            <div class="jamx col-md-8 col-lg-8 col-sm-12 py-3 px-3 bg-light">
+                                <!-- <p>Create the word from the photo. Link beginning letter to ending of the word.</p> -->
+                                <p>
+                                    <div class="text-center" title="Click the image to hear the word!">
+                                        <img id="imgWord" name="beaver" src="https://www.clipartmax.com/png/small/152-1527507_beaver-clipart-kawaii-cute-cartoon-beavers.png" alt="Beaver Clipart Kawaii - Cute Cartoon Beavers @clipartmax.com">
+                                    </div>
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="wordsTitle py-5">
+                                            <h4>Beginning</h4>
+                                            <h4>Ending</h4>
+                                        </div>
+                                        <ul id="words" class="words columns-2 list-unstyled">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- <input id='txtInput' /> <br><br> -->
                     <!-- <button id='btnSpeak'>Speak!</button> -->
@@ -109,6 +189,7 @@
                                 toSpeak.voice = voice;
                             }
                         });
+                        toSpeak.rate = 0.5;
                         synth.speak(toSpeak);
                     });
                     s2.addEventListener('click', () => {
@@ -119,6 +200,8 @@
                                 toSpeak.voice = voice;
                             }
                         });
+                        toSpeak.rate = 0.5;
+
                         synth.speak(toSpeak);
                     });
                     s3.addEventListener('click', () => {
@@ -129,7 +212,21 @@
                                 toSpeak.voice = voice;
                             }
                         });
+                        toSpeak.rate = 0.5;
+
                         synth.speak(toSpeak);
+                    });
+
+                    document.querySelector("#pause").addEventListener("click", () => {
+                        synth.pause();
+                    });
+
+                    document.querySelector("#resume").addEventListener("click", () => {
+                        synth.resume();
+                    });
+
+                    document.querySelector("#cancel").addEventListener("click", () => {
+                        synth.cancel();
                     });
 
                     function PopulateVoices() {
@@ -155,31 +252,120 @@
                 column-count: 2;
             }
 
+            .bg-pretty {
+                background-color: #f1f5f6;
+            }
+
+
+            .words {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(100px, 1fr));
+                text-align: center;
+                grid-gap: 20px;
+            }
+
+            .words>li {
+                background-color: white;
+                border-color: #0f0f0f;
+                border-radius: 10px;
+                border-width: 1px;
+                border-style: solid;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                font-size: 1.5em;
+                transition: .4s;
+            }
+
+            .words>li:hover {
+                background-color: beige;
+                border-color: gold;
+                font-weight: 600;
+            }
+
+            .wordsTitle {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(100px, 1fr));
+                text-align: center;
+                grid-gap: 20px;
+            }
+
+            .jamx {
+                border-color: #0f0f0f;
+                border-radius: 10px;
+                border-width: 1px;
+                border-style: solid;
+            }
+
+            #jamxId,
+            #points {
+                display: none;
+                /*transition: .4s;*/
+                animation: fadeIn .5s;
+                -webkit-animation: fadeIn .5s;
+                -moz-animation: fadeIn .5s;
+                -o-animation: fadeIn .5s;
+                -ms-animation: fadeIn .5s;
+            }
+
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @-moz-keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @-webkit-keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @-o-keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @-ms-keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+
             </style>
-            <div class="row gx-4 gx-lg-5  justify-content-center pt-5">
-                <div class="col-md-8">
-                    <h3 class="text-center">JAM-X!</h3>
-                    <p>Create the word from the photo. Link beginning letter to ending of the word.</p>
-                    <button id='btnSpeak'>Play! (Not Ready)</button>
-                    <p>
-                        <img id="imgWord" name="beaver" src="https://www.clipartmax.com/png/small/152-1527507_beaver-clipart-kawaii-cute-cartoon-beavers.png" alt="Beaver Clipart Kawaii - Cute Cartoon Beavers @clipartmax.com">
-                        <h6>Click the image to hear the word!</h6>
-                    </p>
-                    <ul id="words" class="words columns-2 list-unstyled">
-                    </ul>
-                </div>
-            </div>
             <script>
-            let wordsArray = ['h', 'be', 'ca', 'oot', 'ttern', 'aver'];
+            let wordsArray = ['h', 'ttern', 'be', 'oot', 'ca', 'aver'];
             let word = document.getElementById("imgWord").name;
             let compareWord = "";
             let compareArray = [];
 
             // populate list with words
             function showWords() {
-                // var wordsFinal = wordsArray.map(function(word, i) {
-                //     return word
-                // })
 
                 document.getElementById('words').innerHTML =
                     '<li>' + wordsArray.join('</li><li>') + '</li>'
@@ -195,17 +381,38 @@
                     if (compareArray.length == 2) {
                         compareWord = compareArray[0] + compareArray[1];
                         if (compareWord == word) {
-                            alert("CORRECT YASSS");
+                            alert("CORRECT!");
                             compareArray = [];
                             compareWord = "";
                         } else {
-                            alert("FAIL");
+                            alert("TRY AGAIN!");
                             compareArray = [];
                             compareWord = "";
                         }
                     }
                 }
             });
+            // Show button when children have read
+
+            // let playBtn = document.getElementById('playBtn');
+            // playBtn.removeAttribute('disabled');
+
+            // Hide Show
+            function hideShow() {
+                var x = document.getElementById("jamxId");
+                var reading = document.getElementById("reading");
+                var points = document.getElementById("points");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                    points.style.display = "block";
+                    reading.style.display = "none";
+                } else {
+                    points.style.display = "none";
+                    x.style.display = "none";
+                    reading.style.display = "block";
+
+                }
+            }
 
             </script>
     </section>
@@ -219,6 +426,46 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="../js/scripts.js"></script>
+    <script>
+    /*    let speech = new SpeechSynthesisUtterance();
+    speech.lang = "en";
+
+    let voices = [];
+    window.speechSynthesis.onvoiceschanged = () => {
+        voices = window.speechSynthesis.getVoices();
+        speech.voice = voices[0];
+        let voiceSelect = document.querySelector("#voices");
+        voices.forEach((voice, i) => (voiceSelect.options[i] = new Option(voice.name, i)));
+    };
+
+    document.querySelector("#rate").addEventListener("input", () => {
+        const rate = document.querySelector("#rate").value;
+        speech.rate = rate;
+        document.querySelector("#rate-label").innerHTML = rate;
+    });
+
+    document.querySelector("#volume").addEventListener("input", () => {
+        const volume = document.querySelector("#volume").value;
+        speech.volume = volume;
+        document.querySelector("#volume-label").innerHTML = volume;
+    });
+
+    document.querySelector("#pitch").addEventListener("input", () => {
+        const pitch = document.querySelector("#pitch").value;
+        speech.pitch = pitch;
+        document.querySelector("#pitch-label").innerHTML = pitch;
+    });
+
+    document.querySelector("#voices").addEventListener("change", () => {
+        speech.voice = voices[document.querySelector("#voices").value];
+    });
+*/
+    // document.querySelector("#start").addEventListener("click", () => {
+    //     speech.text = document.querySelector("textarea").value;
+    //     window.speechSynthesis.speak(speech);
+    // });
+
+    </script>
 </body>
 
 </html>
