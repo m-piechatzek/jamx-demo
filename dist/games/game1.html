@@ -84,6 +84,7 @@
                 /*font-weight: 600;*/
             }
 
+
     </style>
     <!-- GAME 2 -->
     <section class="pb-5 bg-light py-3 px-3">
@@ -93,7 +94,7 @@
                     <div id="readingPoints">
                         <h3 class="text-center pb-3">Reading Progress</h3>
                         <div class="text-center"> <strong>Select Voice: <select id='voiceList'></select> <br><br></strong></div>
-                        <div class="text-center">
+                        <!--   <div class="text-center">
                             <p>
                                 <strong>Sentence 1</strong>: <span id="s1Pro">0</span>
                             </p>
@@ -103,7 +104,7 @@
                             <p>
                                 <strong>Sentence 3</strong>: <span id="s3Pro">0</span>
                             </p>
-                        </div>
+                        </div> -->
                         <div class="mb-2 text-center">
                             <!-- <button id="start" class="btn btn-success mt-5 me-3">Start</button> -->
                             <button id="pause" class="btn btn-warning mt-5 me-3">Pause</button>
@@ -122,6 +123,11 @@
                         <p>
                             <strong>Sentence 3 Point</strong>: <span id="s3Game">0</span>
                         </p>
+                        <div class="mb-2 text-center">
+                            <button id="s1Btn" class="btn btn-light">1</button>
+                            <button id="s2Btn" class="btn btn-light">2</button>
+                            <button id="s3Btn" class="btn btn-light">3</button>
+                        </div>
                     </div>
                     <p class="text-center py-3">
                         <!-- add disabled -->
@@ -146,26 +152,77 @@
                         </div>
                     </div>
                     <div id="jamxId" class="container">
-                        <h3 class="text-center pb-3">Sentence 1</h3>
-                        <div class="row gx-4 gx-lg-5  justify-content-center">
-                            <div class="jamx col-md-8 col-lg-8 col-sm-12 py-3 px-3 bg-light">
-                                <!-- <p>Create the word from the photo. Link beginning letter to ending of the word.</p> -->
-                                <p>
-                                    <div class="text-center" title="Click the image to hear the word!">
-                                        <img id="imgWord" name="beaver" src="https://www.clipartmax.com/png/small/152-1527507_beaver-clipart-kawaii-cute-cartoon-beavers.png" alt="Beaver Clipart Kawaii - Cute Cartoon Beavers @clipartmax.com">
-                                    </div>
-                                </p>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="wordsTitle py-5">
-                                            <h4>Beginning</h4>
-                                            <h4>Ending</h4>
+                        <div id="sentence1">
+                            <h3 class="text-center pb-3">Sentence 1</h3>
+                            <div class="row gx-4 gx-lg-5  justify-content-center">
+                                <div class="jamx col-md-8 col-lg-8 col-sm-12 py-3 px-3 bg-light">
+                                    <!-- <p>Create the word from the photo. Link beginning letter to ending of the word.</p> -->
+                                    <p>
+                                        <div class="text-center" title="Click the image to hear the word!">
+                                            <img id="imgWord" name="beaver" src="https://www.clipartmax.com/png/small/152-1527507_beaver-clipart-kawaii-cute-cartoon-beavers.png" alt="Beaver Clipart Kawaii - Cute Cartoon Beavers @clipartmax.com">
                                         </div>
-                                        <ul id="words" class="words columns-2 list-unstyled">
-                                        </ul>
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="wordsTitle py-5">
+                                                <h4>Beginning</h4>
+                                                <h4>Ending</h4>
+                                            </div>
+                                            <ul id="words1" class="words columns-2 list-unstyled">
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div id="sentence2">
+                            <h3 class="text-center pb-3">Sentence 2</h3>
+                            <div class="row gx-4 gx-lg-5  justify-content-center">
+                                <div class="jamx col-md-8 col-lg-8 col-sm-12 py-3 px-3 bg-light">
+                                    <!-- <p>Create the word from the photo. Link beginning letter to ending of the word.</p> -->
+                                    <p>
+                                        <div class="text-center" title="Click the image to hear the word!">
+                                            <img id="imgWord" name="beaver" src="https://illustoon.com/photo/3055.png" alt="Horse">
+                                        </div>
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="wordsTitle py-5">
+                                                <h4>Beginning</h4>
+                                                <h4>Ending</h4>
+                                            </div>
+                                            <ul id="words2" class="words columns-2 list-unstyled">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sentence3">
+                            <h3 class="text-center pb-3">Sentence 3</h3>
+                            <div class="row gx-4 gx-lg-5  justify-content-center">
+                                <div class="jamx col-md-8 col-lg-8 col-sm-12 py-3 px-3 bg-light">
+                                    <!-- <p>Create the word from the photo. Link beginning letter to ending of the word.</p> -->
+                                    <p>
+                                        <div class="text-center" title="Click the image to hear the word!">
+                                            <img id="imgWord" name="beaver" src="https://i.pinimg.com/originals/50/a4/cb/50a4cbc99629bcfeb2c372b1eb59bfcd.jpg" alt="Bison">
+                                        </div>
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="wordsTitle py-5">
+                                                <h4>Beginning</h4>
+                                                <h4>Ending</h4>
+                                            </div>
+                                            <ul id="words3" class="words columns-2 list-unstyled">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="complete">
+                            <h3>Complete! You Did It!!</h3>
                         </div>
                     </div>
                     <!-- <input id='txtInput' /> <br><br> -->
@@ -246,6 +303,33 @@
                         voiceList.selectedIndex = selectedIndex;
                     }
 
+                    // Sentence Display Show Hide
+                    let s1Btn = document.getElementById('s1Btn');
+                    let s2Btn = document.getElementById('s2Btn');
+                    let s3Btn = document.getElementById('s3Btn');
+
+                    let s1Sentence = document.getElementById('sentence1');
+                    let s2Sentence = document.getElementById('sentence2');
+                    let s3Sentence = document.getElementById('sentence3');
+
+                    s1Btn.addEventListener('click', () => {
+                        s1Sentence.style.display = "block";
+                        s2Sentence.style.display = "none";
+                        s3Sentence.style.display = "none";
+                    });
+
+                    s2Btn.addEventListener('click', () => {
+                        s1Sentence.style.display = "none";
+                        s2Sentence.style.display = "block";
+                        s3Sentence.style.display = "none";
+                    });
+
+                    s3Btn.addEventListener('click', () => {
+                        s1Sentence.style.display = "none";
+                        s2Sentence.style.display = "none";
+                        s3Sentence.style.display = "block";
+                    });
+
                     </script>
                 </div>
             </div>
@@ -304,9 +388,14 @@
                 width: 100%;
             }
 
+            #jamxId>#sentence2,
+            #jamxId>#sentence3,
+            #jamxId>#complete {
+                display: none;
+            }
+
             #jamxId,
-            #points
-            {
+            #points {
                 display: none;
                 /*transition: .4s;*/
                 animation: fadeIn .5s;
@@ -368,35 +457,115 @@
 
             </style>
             <script>
-            let wordsArray = ['h', 'ttern', 'be', 'oot', 'ca', 'aver'];
-            let word = document.getElementById("imgWord").name;
+            let wordsArray1 = ['h', 'ttern', 'be', 'oot', 'ca', 'aver'];
+            let wordsArray2 = ['r', 'ow', 'f', 'ew', 'h', 'orse'];
+            let wordsArray3 = ['bi', 'as', 'fo', 'son', 'po', 'wer'];
+            let word1 = document.getElementById("imgWord").name;
+            let word2 = "horse"
+            let word3 = "bison"
             let compareWord = "";
             let compareArray = [];
+            let s1SentenceCount = document.getElementById('s1Game');
+            let s2SentenceCount = document.getElementById('s2Game');
+            let s3SentenceCount = document.getElementById('s3Game');
 
             // populate list with words
             function showWords() {
 
-                document.getElementById('words').innerHTML =
-                    '<li>' + wordsArray.join('</li><li>') + '</li>'
+                document.getElementById('words1').innerHTML =
+                    '<li>' + wordsArray1.join('</li><li>') + '</li>'
+
+                document.getElementById('words2').innerHTML =
+                    '<li>' + wordsArray2.join('</li><li>') + '</li>'
+
+                document.getElementById('words3').innerHTML =
+                    '<li>' + wordsArray3.join('</li><li>') + '</li>'
             }
 
             showWords();
 
             //compare letters
-            document.getElementById("words").addEventListener("click", function(e) {
+            document.getElementById("words1").addEventListener("click", function(e) {
                 if (e.target && e.target.matches("li")) {
                     compareArray.push(e.target.textContent);
                     console.log("li", e.target);
                     if (compareArray.length == 2) {
                         compareWord = compareArray[0] + compareArray[1];
-                        if (compareWord == word) {
+                        if (compareWord == word1) {
                             alert("CORRECT!");
                             compareArray = [];
                             compareWord = "";
+                            s1SentenceCount.innerHTML = "1";
+                            if ((s1SentenceCount.innerHTML + s2SentenceCount.innerHTML + s3SentenceCount.innerHTML) == '111') {
+                                let complete = document.getElementById('complete');
+                                complete.style.display = "block";
+                                s1Sentence.style.display = "none";
+                                s2Sentence.style.display = "none";
+                                s3Sentence.style.display = "none";
+                            }
                         } else {
                             alert("TRY AGAIN!");
                             compareArray = [];
                             compareWord = "";
+                            s1SentenceCount.innerHTML = "0";
+
+                        }
+                    }
+                }
+            });
+            document.getElementById("words2").addEventListener("click", function(e) {
+                if (e.target && e.target.matches("li")) {
+                    compareArray.push(e.target.textContent);
+                    console.log("li", e.target);
+                    if (compareArray.length == 2) {
+                        compareWord = compareArray[0] + compareArray[1];
+                        if (compareWord == word2) {
+                            alert("CORRECT!");
+                            compareArray = [];
+                            compareWord = "";
+                            s2SentenceCount.innerHTML = "1";
+                            if ((s1SentenceCount.innerHTML + s2SentenceCount.innerHTML + s3SentenceCount.innerHTML) == '111') {
+                                let complete = document.getElementById('complete');
+                                complete.style.display = "block";
+                                s1Sentence.style.display = "none";
+                                s2Sentence.style.display = "none";
+                                s3Sentence.style.display = "none";
+                            }
+                        } else {
+                            alert("TRY AGAIN!");
+                            compareArray = [];
+                            compareWord = "";
+                            s2SentenceCount.innerHTML = "0";
+
+                        }
+                    }
+                }
+            });
+            document.getElementById("words3").addEventListener("click", function(e) {
+                if (e.target && e.target.matches("li")) {
+                    compareArray.push(e.target.textContent);
+                    console.log("li", e.target);
+                    if (compareArray.length == 2) {
+                        compareWord = compareArray[0] + compareArray[1];
+                        if (compareWord == word3) {
+                            alert("CORRECT!");
+                            compareArray = [];
+                            compareWord = "";
+                            s3SentenceCount.innerHTML = "1";
+                            if ((s1SentenceCount.innerHTML + s2SentenceCount.innerHTML + s3SentenceCount.innerHTML) == '111') {
+                                let complete = document.getElementById('complete');
+                                complete.style.display = "block";
+                                s1Sentence.style.display = "none";
+                                s2Sentence.style.display = "none";
+                                s3Sentence.style.display = "none";
+                            }
+
+                        } else {
+                            alert("TRY AGAIN!");
+                            compareArray = [];
+                            compareWord = "";
+                            s3SentenceCount.innerHTML = "0";
+
                         }
                     }
                 }
