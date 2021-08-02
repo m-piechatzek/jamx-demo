@@ -10850,3 +10850,21 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+/* MONIKA STYLES */
+.alert-link {
+  color: black !important;
+}
+.alert-link:hover {
+  text-decoration: none !important;
+
+}
+.hangingindent {
+  padding-left: 22px ;
+  text-indent: -22px ;
+}
+
+.up-title {
+        align-self: baseline;
+          display: grid;
+}
