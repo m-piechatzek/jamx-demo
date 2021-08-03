@@ -13,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="../css/styles.css" rel="stylesheet" />
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://kit.fontawesome.com/ebad63af59.js" crossorigin="anonymous"></script>
 </head>
 
@@ -25,7 +25,6 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Game</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -37,7 +36,7 @@
                             <li><a class="dropdown-item" href="../resources.html">Extra Resources</a></li>
                         </ul>
                     </li>
-                     <li class="nav-item"><a class="nav-link" href="../storyboard.html">Storyboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../storyboard.html">Storyboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="../feedback.html">Feedback</a></li>
                     <li class="nav-item"><a class="nav-link" href="../about-us.html">About us</a></li>
                 </ul>
@@ -117,7 +116,7 @@
                         <p>
                             <strong>Sentence 3 Point</strong>: <span id="s3Game">0</span>
                         </p>
-                      <!--   <div class="mb-2 text-center">
+                        <!--   <div class="mb-2 text-center">
                             <button id="s1Btn" class="btn btn-light">1</button>
                             <button id="s2Btn" class="btn btn-light">2</button>
                             <button id="s3Btn" class="btn btn-light">3</button>
@@ -135,7 +134,7 @@
                             <!-- <i class="fas fa-volume-up"></i> -->
                             <p><i class="fas fa-play"></i> &nbsp; &nbsp;1.
                                 <span id="s1">
-                                    In Michif, the word for beaver is “aen kaastor.” At the start of the fur trade, the First Nations did most of the trapping. However, the Métis, who are sometimes considered “children of the fur trade,” became skilled hunters and trappers as well. The Métis began making a living as trappers by the end of the 1700s. 
+                                    In Michif, the word for beaver is “aen kaastor.” At the start of the fur trade, the First Nations did most of the trapping. However, the Métis, who are sometimes considered “children of the fur trade,” became skilled hunters and trappers as well. The Métis began making a living as trappers by the end of the 1700s.
                                 </span>
                             </p>
                             <p><i class="fas fa-play"></i> &nbsp; &nbsp;2.
@@ -146,19 +145,29 @@
                             </p>
                         </div>
                     </div>
-                    <div id="jamxId" class="container">
+                    <style>
+                    #imgWord {
+                        border-color: #0f0f0f;
+                        border-radius: 10px;
+                        border-width: 1px;
+                        border-style: solid;
+                    }
+
+                    </style>
+                    <div id="jamxId">
                         <div id="sentence1">
                             <h3 class="text-center pb-3">Sentence 1</h3>
-                            <div class="row gx-4 gx-lg-5  justify-content-center">
-                                <div class="jamx col-md-8 col-lg-8 col-sm-12 py-3 px-3 bg-light">
-                                    <!-- <p>Create the word from the photo. Link beginning letter to ending of the word.</p> -->
-                                    <p>
-                                        <div class="text-center" title="Click the image to hear the word!">
-                                            <img id="imgWord" name="beaver" src="https://www.clipartmax.com/png/small/152-1527507_beaver-clipart-kawaii-cute-cartoon-beavers.png" alt="Beaver Clipart Kawaii - Cute Cartoon Beavers @clipartmax.com">
+                            <div class="row  justify-content-center">
+                                <div class="jamx col-md-12 col-lg-12 col-sm-12 py-3 px-3 bg-light">
+                                    <div class="row justify-content-md-center">
+                                        <div class="col-md-5 col-lg-6 col-sm-12">
+                                            <p>
+                                                <div class="text-center">
+                                                    <img id="imgWord" name="beaver" src="../img/beaver.jpeg" alt="Beaver">
+                                                </div>
+                                            </p>
                                         </div>
-                                    </p>
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-7 col-lg-6 col-sm-12">
                                             <div class="wordsTitle py-5">
                                                 <h4>Beginning</h4>
                                                 <h4>Ending</h4>
@@ -173,15 +182,16 @@
                         <div id="sentence2">
                             <h3 class="text-center pb-3">Sentence 2</h3>
                             <div class="row gx-4 gx-lg-5  justify-content-center">
-                                <div class="jamx col-md-8 col-lg-8 col-sm-12 py-3 px-3 bg-light">
-                                    <!-- <p>Create the word from the photo. Link beginning letter to ending of the word.</p> -->
-                                    <p>
-                                        <div class="text-center" title="Click the image to hear the word!">
-                                            <img id="imgWord" name="beaver" src="https://illustoon.com/photo/3055.png" alt="Horse">
+                                <div class="jamx col-md-12 col-lg-12 col-sm-12 py-3 px-3 bg-light">
+                                    <div class="row justify-content-md-center">
+                                        <div class="col-md-5 col-lg-6 col-sm-12">
+                                            <p>
+                                                <div class="text-center">
+                                                    <img id="imgWord" name="horse" src="../img/horse.jpeg" alt="Horse">
+                                                </div>
+                                            </p>
                                         </div>
-                                    </p>
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-7 col-lg-6 col-sm-12">
                                             <div class="wordsTitle py-5">
                                                 <h4>Beginning</h4>
                                                 <h4>Ending</h4>
@@ -196,15 +206,16 @@
                         <div id="sentence3">
                             <h3 class="text-center pb-3">Sentence 3</h3>
                             <div class="row gx-4 gx-lg-5  justify-content-center">
-                                <div class="jamx col-md-8 col-lg-8 col-sm-12 py-3 px-3 bg-light">
-                                    <!-- <p>Create the word from the photo. Link beginning letter to ending of the word.</p> -->
-                                    <p>
-                                        <div class="text-center" title="Click the image to hear the word!">
-                                            <img id="imgWord" name="beaver" src="https://i.pinimg.com/originals/50/a4/cb/50a4cbc99629bcfeb2c372b1eb59bfcd.jpg" alt="Bison">
+                                <div class="jamx col-md-12 col-lg-12 col-sm-12 py-3 px-3 bg-light">
+                                    <div class="row justify-content-md-center">
+                                        <div class="col-md-5 col-lg-6 col-sm-12">
+                                            <p>
+                                                <div class="text-center">
+                                                    <img id="imgWord" name="bison" src="../img/bison.jpeg" alt="Bison">
+                                                </div>
+                                            </p>
                                         </div>
-                                    </p>
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-7 col-lg-6 col-sm-12">
                                             <div class="wordsTitle py-5">
                                                 <h4>Beginning</h4>
                                                 <h4>Ending</h4>
@@ -216,10 +227,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="complete">
+                        <div id="complete" class="text-center">
                             <h3>Complete! You Did It!!</h3>
                         </div>
-                           <div class="mb-2 text-center py-3">
+                        <div class="mb-2 text-center py-3">
                             <button id="s1Btn" class="btn btn-light">1</button>
                             <button id="s2Btn" class="btn btn-light">2</button>
                             <button id="s3Btn" class="btn btn-light">3</button>
@@ -460,9 +471,9 @@
             let wordsArray1 = ['h', 'ttern', 'be', 'oot', 'ca', 'aver'];
             let wordsArray2 = ['r', 'ow', 'f', 'ew', 'h', 'orse'];
             let wordsArray3 = ['bi', 'as', 'fo', 'son', 'po', 'wer'];
-            let word1 = document.getElementById("imgWord").name;
-            let word2 = "horse"
-            let word3 = "bison"
+            let word1 = "beaver";
+            let word2 = "horse";
+            let word3 = "bison";
             let compareWord = "";
             let compareArray = [];
             let s1SentenceCount = document.getElementById('s1Game');
