@@ -19,32 +19,24 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="../index.html">JAM-X</a>
+            <a class="navbar-brand" href="index.html">JAM-X</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Game</a>
+                        <a class="nav-link dropdown-toggle active" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Game</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="../play.html">Play</a></li>
+                            <li><a class="dropdown-item" href="play.html">Play</a></li>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
-                            <li><a class="dropdown-item" href="../user-guide.html">User Guide</a></li>
-                            <li><a class="dropdown-item" href="../modules.html">Modules</a></li>
-                            <li><a class="dropdown-item" href="../resources.html">Extra Resources</a></li>
+                            <li><a class="dropdown-item" href="user-guide.html">User Guide</a></li>
+                            <li><a class="dropdown-item" href="resources.html">Extra Resources</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Feedback</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="student-feedback.html">Student Feedback</a></li>
-                            <li><a class="dropdown-item" href="teacher-feedback.html">Teacher Feedback</a></li>
-                            <li><a class="dropdown-item" href="suggestions.html">Suggestions</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="../about-us.html">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="storyboard.html">Storyboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about-us.html">About us</a></li>
                 </ul>
                 <form class="d-flex">
                     <button disabled class="btn btn-outline-dark" type="submit">
@@ -54,21 +46,22 @@
             </div>
         </div>
     </nav>
-    <!-- Product section-->
+    <style>
+        .QRCode>img {
+            width: 100%;
+        }
+    </style>
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-12">
-                    <div class="small mb-1">FEEDBACK</div>
-                    <h1 class="display-5 fw-bolder">Teacher Feedback</h1>
+                <div class="col-md-6 col-lg-6 up-title">
+                    <h3>Feedback</h3>
+                    <p>Please use our QR code to link to the feedback form or use the link <a href="https://docs.google.com/forms/d/e/1FAIpQLSettEcPINDbiVj7y6oET89J_2jhz4dC0AlFUgtAlwPatIjYcQ/formrestricted" class="alert-link" target="_blank">here</a>.</p>
+                </div>
+                <div class="col-md-6 col-lg-6 QRCode">
+                    <img src="img/feedback-qrcode.png" alt="QR code">
                 </div>
             </div>
-    </section>
-    <!-- Related items section-->
-    <section class="py-5 bg-light">
-        <div class="container px-4 px-lg-5 mt-5">
-            
-           
         </div>
     </section>
     <!-- Footer-->

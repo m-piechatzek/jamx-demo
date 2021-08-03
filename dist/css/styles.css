@@ -10868,3 +10868,7 @@ textarea.form-control-lg {
         align-self: baseline;
           display: grid;
 }
+
+.card>img {
+  object-fit: cover;
+}
