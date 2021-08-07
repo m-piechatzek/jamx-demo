@@ -10872,3 +10872,7 @@ textarea.form-control-lg {
 .card>img {
   object-fit: cover;
 }
+
+.credit {
+  font-size: smaller;
+}

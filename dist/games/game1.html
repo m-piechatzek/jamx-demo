@@ -40,11 +40,7 @@
                     <li class="nav-item"><a class="nav-link" href="../feedback.html">Feedback</a></li>
                     <li class="nav-item"><a class="nav-link" href="../about-us.html">About us</a></li>
                 </ul>
-                <form class="d-flex">
-                    <button disabled class="btn btn-outline-dark" type="submit">
-                        Admin Login
-                    </button>
-                </form>
+
             </div>
         </div>
     </nav>
@@ -59,7 +55,7 @@
                 </div>
                 <div class="col-md-6">
                     <iframe width="100%" src="https://drive.google.com/file/d/1sY57N5r6muEWj2zuWsuI-pjYBGNN58FI/preview" allow="autoplay"></iframe>
-                    <p class="text-center"><a href="https://drive.google.com/file/d/1sY57N5r6muEWj2zuWsuI-pjYBGNN58FI/view" class="alert-link" target="_blank">Instructions by Xinzhu Rao</a></p>
+                    <p class="text-center credit"><a href="https://drive.google.com/file/d/1sY57N5r6muEWj2zuWsuI-pjYBGNN58FI/view" class="alert-link" target="_blank">Instructions by Xinzhu Rao</a></p>
                 </div>
             </div>
     </section>
@@ -104,9 +100,11 @@
                         </div> -->
                         <div class="mb-2 text-center">
                             <!-- <button id="start" class="btn btn-success mt-5 me-3">Start</button> -->
-                            <button id="pause" class="btn btn-warning mt-5 me-3"><i class="fas fa-pause"></i></button>
-                            <button id="resume" class="btn btn-info mt-5 me-3"><i class="fas fa-arrows-alt-h"></i></button>
-                            <button id="cancel" class="btn btn-danger mt-5 me-3"><i class="fas fa-times"></i></button>
+                            <button id="pause" class="btn btn-warning mt-5 me-3" title="Pause"><i class="fas fa-pause"></i></button>
+                            <button id="resume" class="btn btn-info mt-5 me-3" title="Resume"><i class="fas fa-arrows-alt-h"></i></button>
+                            <button id="refresh" class="btn btn-primary mt-5 me-3" title="Refresh"><i class="fas fa-redo"></i>
+                            </button>
+                            <button id="cancel" class="btn btn-danger mt-5 me-3" title="Cancel"><i class="fas fa-times"></i></button>
                         </div>
                     </div>
                     <div id="points" class="text-center">
@@ -168,6 +166,7 @@
                                             <p>
                                                 <div class="text-center">
                                                     <img id="imgWord" name="beaver" src="../img/beaver.jpeg" alt="Beaver">
+                                                    <p class="credit text-center">Art by Janna Speed</p>
                                                 </div>
                                             </p>
                                         </div>
@@ -192,6 +191,7 @@
                                             <p>
                                                 <div class="text-center">
                                                     <img id="imgWord" name="horse" src="../img/horse.jpeg" alt="Horse">
+                                                     <p class="credit text-center">Art by Janna Speed</p>
                                                 </div>
                                             </p>
                                         </div>
@@ -216,6 +216,7 @@
                                             <p>
                                                 <div class="text-center">
                                                     <img id="imgWord" name="bison" src="../img/bison.jpeg" alt="Bison">
+                                                     <p class="credit text-center">Art by Janna Speed</p>
                                                 </div>
                                             </p>
                                         </div>
@@ -232,7 +233,7 @@
                             </div>
                         </div>
                         <div id="complete" class="text-center">
-                            <h3>Complete! You Did It!!</h3>
+                            <h3>3/3 Complete! You Did It!!</h3>
                         </div>
                         <div class="mb-2 text-center py-3">
                             <button id="s1Btn" class="btn btn-light">1</button>
@@ -301,7 +302,9 @@
                     document.querySelector("#resume").addEventListener("click", () => {
                         synth.resume();
                     });
-
+                    document.querySelector("#refresh").addEventListener("click", () => {
+                        synth.cancel();
+                    });
                     document.querySelector("#cancel").addEventListener("click", () => {
                         synth.cancel();
                     });
