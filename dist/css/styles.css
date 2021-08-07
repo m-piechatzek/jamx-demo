@@ -10876,3 +10876,7 @@ textarea.form-control-lg {
 .credit {
   font-size: smaller;
 }
+.yellowLetter {
+  color: #ffc107;
+  text-decoration: underline;
+}
